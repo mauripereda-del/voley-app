@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ingresar · Club Vóley</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="auth-shell">
+
+  <!-- Panel visual: diagrama de rotación de vóley como firma del diseño -->
+  <div class="auth-visual">
+    <div class="brand">CLUB · GESTIÓN DE VÓLEY</div>
+    <div>
+      <h1 class="headline">Cada rotación,<br>bajo control.</h1>
+      <p class="sub">Plantel, convocatorias, alineaciones, estadísticas en vivo y más — desde el celular, la tablet o la notebook.</p>
+    </div>
+    <svg class="rotation-diagram" width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="170" cy="170" r="150" stroke="#2C6E8E" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.6"/>
+      <circle cx="170" cy="170" r="95" stroke="#F2A93B" stroke-width="1.5" opacity="0.5"/>
+      <!-- posiciones 1 a 6 en cancha -->
+      <g font-family="JetBrains Mono, monospace" font-weight="700" font-size="22" fill="#F2A93B">
+        <circle cx="170" cy="65" r="24" fill="#1a2f4d" stroke="#F2A93B" stroke-width="2"/>
+        <text x="170" y="73" text-anchor="middle">1</text>
+        <circle cx="272" cy="118" r="24" fill="#1a2f4d" stroke="#F2A93B" stroke-width="2"/>
+        <text x="272" y="126" text-anchor="middle">6</text>
+        <circle cx="272" cy="222" r="24" fill="#1a2f4d" stroke="#F2A93B" stroke-width="2"/>
+        <text x="272" y="230" text-anchor="middle">5</text>
+        <circle cx="170" cy="275" r="24" fill="#1a2f4d" stroke="#F2A93B" stroke-width="2"/>
+        <text x="170" y="283" text-anchor="middle">4</text>
+        <circle cx="68" cy="222" r="24" fill="#1a2f4d" stroke="#F2A93B" stroke-width="2"/>
+        <text x="68" y="230" text-anchor="middle">3</text>
+        <circle cx="68" cy="118" r="24" fill="#1a2f4d" stroke="#F2A93B" stroke-width="2"/>
+        <text x="68" y="126" text-anchor="middle">2</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Panel de formulario -->
+  <div class="auth-form-side">
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-panel="panel-login">Iniciar sesión</button>
+        <button class="auth-tab" data-panel="panel-registro">Crear cuenta</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="auth-panel active" id="panel-login">
+        <div class="error-msg" id="error-login"></div>
+        <form id="form-login">
+          <div class="field">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="login-password">Contraseña</label>
+            <input type="password" id="login-password" required autocomplete="current-password">
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">Ingresar</button>
+        </form>
+      </div>
+
+      <!-- REGISTRO -->
+      <div class="auth-panel" id="panel-registro">
+        <div class="error-msg" id="error-registro"></div>
+        <div class="hint-msg" id="hint-registro"></div>
+        <form id="form-registro">
+          <div class="field">
+            <label for="reg-nombre">Nombre</label>
+            <input type="text" id="reg-nombre" required>
+          </div>
+          <div class="field">
+            <label for="reg-apellido">Apellido</label>
+            <input type="text" id="reg-apellido" required>
+          </div>
+          <div class="field">
+            <label for="reg-email">Email</label>
+            <input type="email" id="reg-email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="reg-password">Contraseña</label>
+            <input type="password" id="reg-password" required minlength="6" autocomplete="new-password">
+          </div>
+          <div class="field">
+            <label for="reg-rol">Soy</label>
+            <select id="reg-rol" required>
+              <option value="jugador">Jugador/a</option>
+              <option value="entrenador">Entrenador/a</option>
+              <option value="delegado">Delegado/a</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">Crear cuenta</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
